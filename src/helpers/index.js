@@ -30,3 +30,40 @@ export const isEmail = email => {
     email.trim().split('@').pop().split('.').pop().length > 1
   ].every(Boolean)
 }
+
+/*
+  Organizes a single word into an object such that you can quickly search letter by letter.
+  Intended to be run over and over again with a list of words.
+
+  Example output for `absorbWord('hi', {})`:
+    {
+      h: {
+        words: ['hi'],
+        i: {
+          words: ['hi]
+        }
+      }
+    }
+*/
+function absorbWord(word, obj) {
+  word.split('').reduce((acc, letter) => {
+    if (acc[letter]) {
+      acc[letter].words.push(word)
+    } else {
+      acc[letter] = {
+        words: [word]
+      }
+    }
+
+    return acc[letter]
+  }, obj)
+
+  return obj
+}
+
+// Uses `absorbWord` to fuse multiple words into an object for searching.
+export function createWordTree(listOfWords, obj = {}) {
+  return listOfWords.reduce((acc, word) => {
+    return absorbWord(word, acc)
+  }, obj)
+}
