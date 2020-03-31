@@ -1,17 +1,26 @@
-/*
-  px <-> em: http://pxtoem.com/
-*/
-
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
-  margin: 0;
-  padding: 0;
+  @extend .h-100;
 
   // https://mzl.la/2KnTfHh
   // size/line-height | family
-  font: 16px/1 'Open Sans', Arial, Helvetica, sans-serif;
+  font: 20px/1 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+#app {
+  @extend .h-100;
+}
+
+.input-search {
+  @extend .f-inherit;
+  @extend .ph2;
+  @extend .pv1;
+
+  font-family: inherit;
+  outline: none;
+}
+
+.search-results {
+  @extend .ba-1px;
+  @extend .h-100;
 }
