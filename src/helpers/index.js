@@ -40,7 +40,7 @@ export const isEmail = email => {
       h: {
         words: ['hi'],
         i: {
-          words: ['hi]
+          words: ['hi']
         }
       }
     }
